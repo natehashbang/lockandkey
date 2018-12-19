@@ -1,0 +1,63 @@
+body {
+  font-size: 100%;
+  background-color: #F1F1F1;
+}
+
+.container {
+  display: flex;
+  max-width: 540px;
+  margin: 2em auto;
+  padding: 1rem;
+  border: 1px solid #DDD;
+  border-radius: 1rem;
+  background-color: #FFF;
+  overflow: hidden;
+}
+
+.container * {
+  border-radius: inherit;
+}
+
+.no-spin::-webkit-inner-spin-button, .no-spin::-webkit-outer-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0 !important;
+    -moz-appearance: none !important;
+}
+
+input:active, input:hover, input:focus {
+  outline: none;
+}
+
+input[type="number"] {
+  width: 100%;
+  border: 0;
+  font-size: 7.2em;
+  text-align: center;
+  overflow: hidden;
+}
+
+input#check-button {
+  background-color: #0096ff;
+  font-family: "Lock and Key", Arial, sans-serif;
+  color: #FFF;
+  padding: 10px 25px;
+  margin: 10px;
+  border: 0;
+  vertical-align: middle;
+  font-size: 4em;
+  cursor: pointer;
+  transition: ease-in-out 0.3s;
+}
+
+input#check-button.active {
+  border-radius: 100px;
+  transform: rotate(720deg);
+}
+
+input#check-button.active.incorrect {
+  background-color: #ec0c0c;
+}
+
+input#check-button.active.correct {
+  background-color: #28f415;
+}

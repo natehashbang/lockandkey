@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./master.css">
+    <link rel="stylesheet" href="./Lock-and-Key.css">
+    <script src="./logic.js" charset="utf-8"></script>
+  </head>
+  <body>
+
+    <div class="container">
+      <input class="no-spin" id="keypad" type="number" pattern="[0-9]" name="my-code" value="">
+      <input id="check-button" onclick="myChk()" type="submit" value="C">
+    </div>
+
+
+
+  <script>
+    const keyPad = document.getElementById('keypad');
+    const chkBtn = document.getElementById('check-button');
+
+    set();
+
+    const myChk = function() {
+      chk(keyPad.value);
+      chkBtn.className = "active";
+      chkBtn.disabled = true;
+      var corDigits = 0;
+      for (var i = 0; i < 4; i++) {
+        if (Object.values(lock.key).includes(lock.guess[i])) {
+          corDigits += 1;
+          console.log(true);
+        }
+      }
+      if(lock.key === lock.guess) {
+        chkBtn.value = "A";
+        chkBtn.classList.toggle("correct");
+        return;
+      }
+      else {
+        chkBtn.value = "B";
+        chkBtn.classList.toggle("incorrect");
+      }
+      setTimeout(function () {
+        keyPad.value = null;
+        keyPad.setAttribute("placeholder", corDigits);
+        chkBtn.value = "C";
+        chkBtn.classList.toggle("active");
+        chkBtn.disabled = false;
+      }, 1000);
+    };
+  </script>
+  </body>
+</html>
